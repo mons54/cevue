@@ -1,3 +1,13 @@
-body {
-  
+html {
+  overflow: auto;
+}
+
+.logo {
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 0.05rem;
+  .first-letter {
+    font-weight: 800;
+  }
 }
