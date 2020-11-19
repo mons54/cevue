@@ -1,12 +1,10 @@
 import Vue from 'vue'
 import App from '@/App.vue'
-import VueMaterial from 'vue-material'
+import VueRouter from 'vue-router'
 
-import 'vue-material/dist/vue-material.min.css'
-import '@/assets/scss/material-kit.scss'
 import '@/assets/scss/app.scss'
 
-Vue.use(VueMaterial)
+Vue.use(VueRouter)
 
 Vue.config.productionTip = false
 
