@@ -1,28 +1,6 @@
 <template>
   <v-app>
-    <v-app-bar
-      app
-      color="secondary"
-      dark
-    >
-      <div class="logo">
-        <img src="@/assets/logo.svg">
-        <span class="accent--text">Bi</span>
-        <span>Star</span>
-      </div>
-
-      <v-spacer></v-spacer>
-
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
-    </v-app-bar>
-
+    <NavBar v-if="$vuetify.breakpoint.smAndUp"/>
     <v-main>
       <HelloWorld/>
     </v-main>
@@ -30,13 +8,15 @@
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
+import HelloWorld from './components/HelloWorld'
+import NavBar from '@/components/NavBar'
 
 export default {
   name: 'App',
 
   components: {
     HelloWorld,
+    NavBar,
   },
 
   data: () => ({
