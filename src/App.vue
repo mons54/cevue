@@ -6,8 +6,9 @@
       dark
     >
       <div class="logo">
+        <img src="@/assets/logo.svg">
         <span class="accent--text">Bi</span>
-        <span>France</span>
+        <span>Star</span>
       </div>
 
       <v-spacer></v-spacer>
