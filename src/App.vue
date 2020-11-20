@@ -1,26 +1,25 @@
 <template>
   <v-app>
-    <NavBar v-if="$vuetify.breakpoint.smAndUp"/>
+    <NavBar
+      v-if="showNav && $vuetify.breakpoint.smAndUp"/>
     <v-main>
-      <HelloWorld/>
+      <router-view></router-view>
     </v-main>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
 import NavBar from '@/components/NavBar'
 
 export default {
   name: 'App',
-
   components: {
-    HelloWorld,
     NavBar,
   },
-
-  data: () => ({
-    //
-  }),
+  computed: {
+    showNav() {
+      return this.$route.name !== 'NotFound'
+    }
+  },
 };
 </script>

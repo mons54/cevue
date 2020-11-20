@@ -31,24 +31,35 @@
           dark
           v-bind="attrs"
           v-on="on"
-          text
-        >
-          Dropdown
+          text>
+          {{ language.name }}
         </v-btn>
       </template>
       <v-list>
-        <v-list-item
-          v-for="(item, index) in lang"
-          :key="index"
-        >
-          <v-list-item-title>{{ item.title }}</v-list-item-title>
-        </v-list-item>
+        <v-list-item-group>
+          <v-list-item
+            v-for="(language, key) in languages"
+            :key="key"
+            :href="`/${language.code}${$route.fullPath}`">
+            <v-list-item-title>{{ language.name }}</v-list-item-title>
+          </v-list-item>
+        </v-list-item-group>
       </v-list>
     </v-menu>
   </v-app-bar>
 </template>
 
 <script>
+import { mapGetters, mapState } from 'vuex'
+
 export default {
+  computed: {
+    ...mapState({
+      languages: state => state.locale.languages,
+    }),
+    ...mapGetters('locale', [
+      'language',
+    ]),
+  },
 }
 </script>
