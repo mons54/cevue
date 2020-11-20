@@ -3,26 +3,31 @@
     app
     color="secondary"
     dark>
-    <div class="logo">
+    <router-link
+      to="/"
+      class="logo">
       <img src="@/assets/logo.svg">
       <span class="primary--text">Bi</span>
       <span>Star</span>
-    </div>
+    </router-link>
 
     <v-spacer></v-spacer>
 
-    <v-btn
-      href="https://github.com/vuetifyjs/vuetify/releases/latest"
-      class="mr-4"
-      text>
-      {{ $t('login') }}
-    </v-btn>
-    <v-btn
-      href="https://github.com/vuetifyjs/vuetify/releases/latest"
-      class="mr-4"
-      depressed>
-      {{ $t('signup') }}
-    </v-btn>
+    <div v-if="!isMobile">
+      <v-btn
+        href="https://github.com/vuetifyjs/vuetify/releases/latest"
+        class="mr-4"
+        text>
+        {{ $t('login') }}
+      </v-btn>
+      <v-btn
+        href="https://github.com/vuetifyjs/vuetify/releases/latest"
+        class="mr-4"
+        depressed>
+        {{ $t('signup') }}
+      </v-btn>
+    </div>
+
     <v-menu
       offset-y
       open-on-hover>
@@ -60,6 +65,9 @@ export default {
     ...mapGetters('locale', [
       'language',
     ]),
+    isMobile() {
+      return this.$vuetify.breakpoint.smAndDown
+    },
   },
 }
 </script>

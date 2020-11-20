@@ -1,5 +1,9 @@
 {
   "login": "Log In",
   "signup": "Register",
-  "goToHomepage": "Go to Homepage"
+  "goToHomepage": "Go to Homepage",
+  "home": "Home",
+  "markets": "Markets",
+  "trade": "Trade",
+  "wallet": "Wallet"
 }
