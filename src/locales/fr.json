@@ -1,5 +1,32 @@
 {
   "login": "Connexion",
   "signup": "S'inscrire",
-  "goToHomepage": "Aller à la page d'accueil"
+  "goToHomepage": "Aller à la page d'accueil",
+  "markets": "Marchés",
+  "trade": "Trader",
+  "wallet": "Portefeuille",
+  "email": "Email",
+  "mobile": "Mobile",
+  "password": "Mot de passe",
+  "formRules": {
+    "email": {
+      "required": "Saisissez une adresse email",
+      "invalid": "Saisissez une adresse email valide"
+    },
+    "phone": {
+      "required": "Saisissez un numéro de téléphone",
+      "invalid": "Saisissez un numéro de téléphone valide"
+    },
+    "password": {
+      "required": "Entrer un mot de passe",
+      "invalid": "Le mot de passe doit comporter au moins 8 caractères avec une lettre majuscule et un chiffre"
+    }
+  },
+  "formHint": {
+    "password": "Au moins 8 caractères • Au moins 1 MAJUSCULE • Au moins 1 chiffre"
+  },
+  "signupPage": {
+    "title": "Créer un compte",
+    "agreeTerms": "J'ai lu et j'accepte les conditions d'utilisation"
+  }
 }

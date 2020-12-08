@@ -29,11 +29,13 @@
     <v-toolbar-items>
       <v-btn
         v-if="!isMobile"
+        to="/login"
         text>
         {{ $t('login') }}
       </v-btn>
       <v-btn
-        v-if="!isMobile">
+        v-if="!isMobile"
+        to="/signup">
         {{ $t('signup') }}
       </v-btn>
       <v-menu

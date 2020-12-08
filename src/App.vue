@@ -28,5 +28,5 @@ export default {
       return this.showNav && this.$vuetify.breakpoint.smAndDown
     },
   },
-};
+}
 </script>

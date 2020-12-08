@@ -1,5 +1,32 @@
 {
   "login": "Iniciar Sesión",
   "signup": "Registrarse",
-  "goToHomepage": "Ir a la página de inicio"
+  "goToHomepage": "Ir a la página de inicio",
+  "markets": "Mercados",
+  "trade": "Trading",
+  "wallet": "Billetera",
+  "email": "Correo electrónico",
+  "mobile": "Móvil",
+  "password": "Contraseña",
+  "formRules": {
+    "email": {
+      "required": "Introduce una dirección de correo electrónico",
+      "invalid": "Introduce una dirección de correo electrónico válido"
+    },
+    "phone": {
+      "required": "Introduce un número de teléfono",
+      "invalid": "Introduce un número de teléfono válido"
+    },
+    "password": {
+      "required": "Ingrese una contraseña",
+      "invalid": "La contraseña debe tener al menos 8 caracteres con letra mayúscula y número"
+    }
+  },
+  "formHint": {
+    "password": "Al menos 8 caracteres • Al menos 1 MAYÚSCULA • Al menos 1 número"
+  },
+  "signupPage": {
+    "title": "Crear una cuenta",
+    "agreeTerms": "He leído y acepto los Términos del Servicio"
+  }
 }

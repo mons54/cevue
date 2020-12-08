@@ -1,5 +1,32 @@
 {
   "login": "登录",
   "signup": "注册",
-  "goToHomepage": "去首页"
+  "goToHomepage": "去首页",
+  "markets": "行情",
+  "trade": "交易",
+  "wallet": "钱包",
+  "email": "郵箱",
+  "mobile": "手機",
+  "password": "郵箱",
+  "formRules": {
+    "email": {
+      "required": "請輸入你的郵箱地址",
+      "invalid": "請輸入正確的郵箱地址"
+    },
+    "phone": {
+      "required": "請輸入正確的手機號",
+      "invalid": "請輸入正確的手機號"
+    },
+    "password": {
+      "required": "输入密码",
+      "invalid": "密码必须至少包含8个字符，且包含大写字母和数字"
+    }
+  },
+  "formHint": {
+    "password": "至少8个字符•至少1个大写字母•至少1个数字"
+  },
+  "signupPage": {
+    "title": "创建一个帐户",
+    "agreeTerms": "至少8個字符，大寫字母和數字"
+  }
 }
