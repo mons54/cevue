@@ -11,6 +11,5 @@ export function validatePhone(phone) {
 }
 
 export function validatePassword(password) {
-  console.log(password)
   return Boolean(typeof password === 'string' && password.match(/(?=.*[A-Z])(?=.*\d).{8,}/))
 }

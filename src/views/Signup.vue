@@ -24,10 +24,10 @@
                 v-model="valid"
                 autocomplete="off">
                 <PhoneField
-                  v-if="items[type] === 'mobile'"
+                  v-if="item === 'mobile'"
                   v-model="form.phone"/>
                 <v-text-field
-                  v-if="items[type] === 'email'"
+                  v-if="item === 'email'"
                   v-model="form.email"
                   type="email"
                   :rules="[
@@ -52,7 +52,8 @@
                   :rules="[v => validateRequired(v)]"
                   required/>
                 <v-btn
-                  :disabled="!valid"
+                  :loading="loading"
+                  :disabled="!valid || loading"
                   color="success"
                   @click="register"
                   width="100%">
@@ -84,6 +85,7 @@ export default {
   },
   data() {
     return {
+      loading: false,
       type: null,
       items: ['mobile', 'email'],
       valid: false,
@@ -98,13 +100,20 @@ export default {
       },
     }
   },
+  computed: {
+    item() {
+      return this.items[this.type]
+    },
+  },
   methods: {
     validateEmail,
     validateRequired,
     validatePassword,
     register() {
-      this.$refs.form.validate()
-      console.log(this.form)
+      if (this.$refs.form.validate()) {
+        this.loading = true
+        console.log(this.form)
+      }
     }
   },
 }
