@@ -2,11 +2,14 @@
   <v-row>
     <v-col cols="4">
       <v-autocomplete
-        v-model="countryModel"
+        v-model="countryIdModel"
+        v-on:change="emit"
         :items="items"
         item-text="code"
         item-value="id"
-        :filter="search">
+        :filter="search"
+        :rules="[v => validateRequired(v)]"
+        required>
         <template v-slot:item="{ item }">
           <div class="item">
             <div class="name">
@@ -21,7 +24,8 @@
     </v-col>
     <v-col cols="8">
       <v-text-field
-        v-model="phone"
+        v-model="numberModel"
+        v-on:change="emit"
         type="number"
         pattern="[0-9]+"
         :rules="[
@@ -44,13 +48,15 @@ import {
 
 export default {
   props: {
-    value: String,
+    value: {
+      code: String,
+      number: String,
+    },
   },
   data() {
     return {
-      country: null,
-      phone: null,
-      searchInput: '',
+      countryId: null,
+      number: null,
     }
   },
   computed: {
@@ -60,15 +66,40 @@ export default {
     ...mapGetters('country', [
       'userCountry',
     ]),
-    countryModel: {
+    numberModel: {
       get() {
-        if (!this.country && this.userCountry)
-          return this.userCountry.id
-        return this.country
+        let number = this.number
+        if (!number && this.value.number)
+          number = this.value.number
+        return number
       },
-      set(country) {
-        this.country = country
+      set(value) {
+        this.number = value
       }
+    },
+    countryIdModel: {
+      get() {
+        let countryId = this.countryId
+        if (!countryId) {
+          let country
+          if (this.value.code)
+            country = this.items.find(item => item.code === this.value.code)
+          else if (this.userCountry)
+            country = this.userCountry
+          if (country)
+            countryId = country.id
+        }
+        return countryId
+      },
+      set(value) {
+        this.countryId = value
+      }
+    },
+    code() {
+      const country = this.items.find(item => item.id === this.countryIdModel)
+      if (country)
+        return country.code
+      return null
     },
     items () {
       return this.countries.map(country => {
@@ -88,6 +119,12 @@ export default {
     validateRequired,
     search(value, query) {
       return value.name.toLowerCase().indexOf(query.toLowerCase()) !== -1 || value.code.indexOf(query) !== -1
+    },
+    emit() {
+      this.$emit('input', {
+        code: this.code,
+        number: this.number
+      })
     },
   },
   created() {
