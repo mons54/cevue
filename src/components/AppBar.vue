@@ -4,7 +4,7 @@
     color="secondary"
     dark>
     <router-link
-      to="/"
+      :to="{ name: 'home' }"
       class="logo">
       <img src="@/assets/logo.svg">
       <span class="primary--text">Cha</span>
@@ -29,13 +29,13 @@
     <v-toolbar-items>
       <v-btn
         v-if="!isMobile"
-        to="/login"
+        :to="{ name: 'login' }"
         text>
         {{ $t('login') }}
       </v-btn>
       <v-btn
         v-if="!isMobile"
-        to="/signup">
+        :to="{ name: 'signup' }">
         {{ $t('signup') }}
       </v-btn>
       <v-menu
