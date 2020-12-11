@@ -33,6 +33,7 @@
     },
     "signupVerification": {
       "title": "Verificación de la cuenta",
+      "labelCode": "Código de verificación por correo electrónico",
       "sentSuccess": "El código ha sido enviado al correo electrónico exitosamente"
     }
   }

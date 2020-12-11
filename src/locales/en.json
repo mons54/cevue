@@ -33,6 +33,7 @@
     },
     "signupVerification": {
       "title": "Account verification",
+      "labelCode": "Email verification code",
       "sentSuccess": "Email code sent successfully"
     }
   }

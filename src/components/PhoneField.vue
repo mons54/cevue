@@ -136,19 +136,6 @@ export default {
 }
 </script>
 
-<style lang="scss">
-.input-phone {
-  input::-webkit-outer-spin-button,
-  input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
-  input[type=number] {
-    -moz-appearance: textfield;
-  }
-}
-</style>
-
 <style lang="scss" scoped>
 .item {
   display: flex;

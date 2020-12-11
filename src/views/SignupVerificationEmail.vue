@@ -9,7 +9,26 @@
           offset-md="3"
           offset-lg="4">
           <h1>{{ $t('pages.signupVerification.title') }}</h1>
-
+          <v-form
+            ref="form"
+            autocomplete="off"
+            class="mt-12">
+            <v-label>{{ $t('pages.signupVerification.labelCode') }}</v-label>
+            <div class="d-flex">
+              <IntegerField
+                v-for="n in 6"
+                @input="input"
+                @keydown="keydown"
+                @paste="paste"
+                :key="n"
+                v-model="code[n - 1]"
+                required
+                class="mr-2 field--code"
+                align="center"
+                :maxlength="1"
+              />
+            </div>
+          </v-form>
         </v-col>
       </v-row>
     </v-container>
@@ -24,17 +43,51 @@
 
 <script>
 import { sendRegister } from '@/api/verification'
+import IntegerField from '@/components/IntegerField'
 import Snackbar from '@/components/Snackbar'
 
 export default {
   components: {
+    IntegerField,
     Snackbar,
   },
   data() {
     return {
+      code: [],
+      back: false,
       snack: false,
       snackColor: null,
       snackMessage: null,
+    }
+  },
+  methods: {
+    input(value) {
+      if (value) {
+        const parent = event.target.closest('.field--code')
+        const next = parent.nextElementSibling
+        if (next) {
+          const input = next.querySelector('input')
+          if (input)
+            input.focus()
+        }
+      }
+
+    },
+    keydown(event, value) {
+      if (event.keyCode === 8 && !value) {
+        const parent = event.target.closest('.field--code')
+        const prev = parent.previousElementSibling
+        if (prev) {
+          const input = prev.querySelector('input')
+          if (input)
+            input.focus()
+        }
+      }
+    },
+    paste(event) {
+      const paste = (event.clipboardData || window.clipboardData).getData('text')
+      if (paste.match(/^\d+$/))
+        this.code = paste.split('')
     }
   },
   async mounted() {
@@ -59,7 +112,13 @@ export default {
       this.snackColor = 'error'
       this.snackMessage = data.error
     }
-
+  },
+  watch: {
+    code(value) {
+      const code = value.join('')
+      if (code.length === 6)
+        console.log(`Post code ${code}`)
+    }
   }
 }
 </script>

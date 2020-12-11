@@ -7,6 +7,10 @@
     :rules="rules"
     :hint="hint"
     :required="required"
+    autocomplete="off"
+    type="number"
+    class="field--integer"
+    :style="`text-align: ${align}`"
   />
 </template>
 
@@ -18,11 +22,16 @@ export default {
     hint: String,
     rules: Array,
     required: Boolean,
+    maxlength: Number,
+    align: {
+      type: String,
+      default: 'left',
+    },
   },
   computed: {
     model: {
       get() {
-        return this.value
+        return this.value || ''
       },
       set(value) {
         this.$emit('input', value)
@@ -31,17 +40,48 @@ export default {
   },
   methods: {
     keydown(e) {
-      if (!e.ctrlKey && ![8, 17].includes(e.keyCode) && !e.key.match(/\d/))
+
+      this.$emit('keydown', e, this.value)
+
+      if (e.ctrlKey || [8, 9, 17].includes(e.keyCode))
+        return
+
+      if (!e.key.match(/\d/))
+        e.preventDefault()
+
+      if (this.maxlength && this.model.length >= this.maxlength)
         e.preventDefault()
     },
     paste(e) {
+
+      this.$emit('paste', e)
+
       const paste = (event.clipboardData || window.clipboardData).getData('text')
+
       if (!paste.match(/^\d+$/))
+        e.preventDefault()
+
+      const value = paste + this.model
+
+      if (this.maxlength && value.length > this.maxlength)
         e.preventDefault()
     }
   }
 }
 </script>
 
-<style lang="css" scoped>
+<style lang="scss">
+.field--integer {
+  input {
+    text-align: inherit;
+  }
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input[type=number] {
+    -moz-appearance: textfield;
+  }
+}
 </style>

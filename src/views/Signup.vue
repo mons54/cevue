@@ -22,7 +22,8 @@
               <v-form
                 ref="form"
                 v-model="valid"
-                autocomplete="off">
+                autocomplete="off"
+                @submit="register">
                 <PhoneField
                   v-if="type === 'mobile'"
                   v-model="form.phone"/>
@@ -54,8 +55,8 @@
                 <v-btn
                   :loading="loading"
                   :disabled="!valid || loading"
+                  type="submit"
                   color="success"
-                  @click="register"
                   width="100%">
                   {{ $t('signup') }}
                 </v-btn>
@@ -119,41 +120,45 @@ export default {
     validateEmail,
     validateRequired,
     validatePassword,
-    async register() {
-      if (this.$refs.form.validate()) {
-        this.loading = true
+    async register(e) {
 
-        const params = { ...this.form }
+      e.preventDefault()
 
-        if (this.type === 'mobile') {
-          params.phone = `${params.phone.code}${params.phone.number.replace(/^0/, '')}`
-        } else {
-          delete params.phone
-        }
+      if (!this.$refs.form.validate())
+        return
 
-        try {
-          await createUser(params)
-        } catch(e) {
-          this.showError = true
-          this.loading = false
-          return
-        }
+      this.loading = true
 
-        if (this.type === 'mobile') {
-          this.$router.push({
-            name: 'signupVerificationMobile',
-            query: {
-              mobile: params.phone,
-            },
-          })
-        } else {
-          this.$router.push({
-            name: 'signupVerificationEmail',
-            query: {
-              email: params.email,
-            },
-          })
-        }
+      const params = { ...this.form }
+
+      if (this.type === 'mobile') {
+        params.phone = `${params.phone.code}${params.phone.number.replace(/^0/, '')}`
+      } else {
+        delete params.phone
+      }
+
+      try {
+        await createUser(params)
+      } catch(e) {
+        this.showError = true
+        this.loading = false
+        return
+      }
+
+      if (this.type === 'mobile') {
+        this.$router.push({
+          name: 'signupVerificationMobile',
+          query: {
+            mobile: params.phone,
+          },
+        })
+      } else {
+        this.$router.push({
+          name: 'signupVerificationEmail',
+          query: {
+            email: params.email,
+          },
+        })
       }
     }
   },
