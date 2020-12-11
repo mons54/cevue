@@ -25,8 +25,15 @@
   "formHint": {
     "password": "Al menos 8 caracteres • Al menos 1 MAYÚSCULA • Al menos 1 número"
   },
-  "signupPage": {
-    "title": "Crear una cuenta",
-    "agreeTerms": "He leído y acepto los Términos del Servicio"
+  "pages": {
+    "signup": {
+      "title": "Crear una cuenta",
+      "agreeTerms": "He leído y acepto los Términos del Servicio",
+      "error": "Ocurrió un error durante el registro"
+    },
+    "signupVerification": {
+      "title": "Verificación de la cuenta",
+      "sentSuccess": "El código ha sido enviado al correo electrónico exitosamente"
+    }
   }
 }

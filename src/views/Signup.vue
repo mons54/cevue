@@ -8,9 +8,9 @@
           lg="4"
           offset-md="3"
           offset-lg="4">
-          <h1>{{ $t('signupPage.title') }}</h1>
+          <h1>{{ $t('pages.signup.title') }}</h1>
           <v-tabs
-            v-model="type">
+            v-model="tab">
             <v-tab
               v-for="(item, i) of items"
               :key="i">
@@ -24,10 +24,10 @@
                 v-model="valid"
                 autocomplete="off">
                 <PhoneField
-                  v-if="item === 'mobile'"
+                  v-if="type === 'mobile'"
                   v-model="form.phone"/>
                 <v-text-field
-                  v-if="item === 'email'"
+                  v-if="type === 'email'"
                   v-model="form.email"
                   type="email"
                   :rules="[
@@ -48,7 +48,7 @@
                   required/>
                 <v-checkbox
                   v-model="form.agree"
-                  :label="$t('signupPage.agreeTerms')"
+                  :label="$t('pages.signup.agreeTerms')"
                   :rules="[v => validateRequired(v)]"
                   required/>
                 <v-btn
@@ -68,11 +68,19 @@
         </v-col>
       </v-row>
     </v-container>
+    <Snackbar
+      v-model="error"
+      color="error">
+      <v-icon>mdi-close-octagon</v-icon>
+      {{ $t('pages.signup.error') }}
+    </Snackbar>
   </div>
 </template>
 
 <script>
+import { createUser } from '@/api/user'
 import PhoneField from '@/components/PhoneField'
+import Snackbar from '@/components/Snackbar'
 import {
   validateEmail,
   validateRequired,
@@ -82,13 +90,15 @@ import {
 export default {
   components: {
     PhoneField,
+    Snackbar,
   },
   data() {
     return {
       loading: false,
-      type: null,
+      tab: null,
       items: ['mobile', 'email'],
       valid: false,
+      error: false,
       form: {
         email: null,
         phone: {
@@ -101,18 +111,49 @@ export default {
     }
   },
   computed: {
-    item() {
-      return this.items[this.type]
+    type() {
+      return this.items[this.tab]
     },
   },
   methods: {
     validateEmail,
     validateRequired,
     validatePassword,
-    register() {
+    async register() {
       if (this.$refs.form.validate()) {
         this.loading = true
-        console.log(this.form)
+
+        const params = { ...this.form }
+
+        if (this.type === 'mobile') {
+          params.phone = `${params.phone.code}${params.phone.number.replace(/^0/, '')}`
+        } else {
+          delete params.phone
+        }
+
+        try {
+          await createUser(params)
+        } catch(e) {
+          this.showError = true
+          this.loading = false
+          return
+        }
+
+        if (this.type === 'mobile') {
+          this.$router.push({
+            name: 'signupVerificationMobile',
+            query: {
+              mobile: params.phone,
+            },
+          })
+        } else {
+          this.$router.push({
+            name: 'signupVerificationEmail',
+            query: {
+              email: params.email,
+            },
+          })
+        }
       }
     }
   },

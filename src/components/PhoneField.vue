@@ -23,24 +23,24 @@
       </v-autocomplete>
     </v-col>
     <v-col cols="8">
-      <v-text-field
+      <IntegerField
         v-model="numberModel"
-        v-on:change="emit"
-        type="number"
-        pattern="[0-9]+"
+        v-on:change.native="emit"
         :rules="[
           v => validateRequired(v) || $t('formRules.phone.required'),
           v => validatePhone(v) || $t('formRules.phone.invalid'),
         ]"
         :label="$t('mobile')"
         required
-        class="input-phone"/>
+        class="input-phone"
+      />
     </v-col>
   </v-row>
 </template>
 
 <script>
 import { mapState, mapGetters, mapActions } from 'vuex'
+import IntegerField from '@/components/IntegerField'
 import {
   validatePhone,
   validateRequired
@@ -52,6 +52,9 @@ export default {
       code: String,
       number: String,
     },
+  },
+  components: {
+    IntegerField,
   },
   data() {
     return {

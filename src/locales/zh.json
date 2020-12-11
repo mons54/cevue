@@ -25,8 +25,15 @@
   "formHint": {
     "password": "至少8个字符•至少1个大写字母•至少1个数字"
   },
-  "signupPage": {
-    "title": "创建一个帐户",
-    "agreeTerms": "至少8個字符，大寫字母和數字"
+  "pages": {
+    "signup": {
+      "title": "创建一个帐户",
+      "agreeTerms": "至少8個字符，大寫字母和數字",
+      "error": "注册期间发生错误"
+    },
+    "signupVerification": {
+      "title": "账号验证",
+      "sentSuccess": "發送郵箱碼成功"
+    }
   }
 }

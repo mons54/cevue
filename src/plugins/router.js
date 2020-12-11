@@ -4,6 +4,7 @@ import { locale } from '@/api/locale'
 import Home from '@/views/Home'
 import Login from '@/views/Login'
 import Signup from '@/views/Signup'
+import SignupVerificationEmail from '@/views/SignupVerificationEmail'
 import NotFound from '@/views/NotFound'
 
 Vue.use(VueRouter)
@@ -11,22 +12,27 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    name: 'Home',
+    name: 'home',
     component: Home,
   },
   {
     path: '/login',
-    name: 'Login',
+    name: 'login',
     component: Login,
   },
   {
     path: '/signup',
-    name: 'Signup',
+    name: 'signup',
     component: Signup,
   },
   {
+    path: '/signup/verification/email',
+    name: 'signupVerificationEmail',
+    component: SignupVerificationEmail,
+  },
+  {
     path: '*',
-    name: 'NotFound',
+    name: 'notFound',
     component: NotFound,
   },
 ]
