@@ -26,7 +26,7 @@
                 @submit="register">
                 <PhoneField
                   v-if="type === 'mobile'"
-                  v-model="form.phone"/>
+                  v-model="form.mobile"/>
                 <v-text-field
                   v-if="type === 'email'"
                   v-model="form.email"
@@ -102,7 +102,7 @@ export default {
       error: false,
       form: {
         email: null,
-        phone: {
+        mobile: {
           code: null,
           number: null,
         },
@@ -132,9 +132,9 @@ export default {
       const params = { ...this.form }
 
       if (this.type === 'mobile') {
-        params.phone = `${params.phone.code}${params.phone.number.replace(/^0/, '')}`
+        params.mobile = `${params.mobile.code}${params.mobile.number.replace(/^0/, '')}`
       } else {
-        delete params.phone
+        delete params.mobile
       }
 
       try {
@@ -149,7 +149,7 @@ export default {
         this.$router.push({
           name: 'signupVerificationMobile',
           query: {
-            mobile: params.phone,
+            mobile: params.mobile,
           },
         })
       } else {

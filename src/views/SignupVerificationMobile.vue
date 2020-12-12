@@ -20,13 +20,13 @@ import { sendRegister } from '@/api/verification'
 
 export default {
   created() {
-    const { phone } = this.$route.query
-    if (!email) {
+    const { mobile } = this.$route.query
+    if (!mobile) {
       this.$router.push({ name: 'home' })
       return
     }
     sendRegister({
-      phone,
+      mobile,
     })
   }
 }

@@ -7,6 +7,7 @@
     :rules="rules"
     :hint="hint"
     :required="required"
+    :disabled="disabled"
     autocomplete="off"
     type="number"
     class="field--integer"
@@ -22,6 +23,7 @@ export default {
     hint: String,
     rules: Array,
     required: Boolean,
+    disabled: Boolean,
     maxlength: Number,
     align: {
       type: String,

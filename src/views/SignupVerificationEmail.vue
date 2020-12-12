@@ -26,6 +26,7 @@
                 class="mr-2 field--code"
                 align="center"
                 :maxlength="1"
+                :disabled="loading"
               />
             </div>
           </v-form>
@@ -42,7 +43,7 @@
 </template>
 
 <script>
-import { sendRegister } from '@/api/verification'
+import { register, sendRegister } from '@/api/verification'
 import IntegerField from '@/components/IntegerField'
 import Snackbar from '@/components/Snackbar'
 
@@ -55,6 +56,7 @@ export default {
     return {
       code: [],
       back: false,
+      loading: false,
       snack: false,
       snackColor: null,
       snackMessage: null,
@@ -114,10 +116,21 @@ export default {
     }
   },
   watch: {
-    code(value) {
+    async code(value) {
       const code = value.join('')
-      if (code.length === 6)
-        console.log(`Post code ${code}`)
+      if (code.length === 6) {
+        this.loading = true
+        const { email } = this.$route.query
+        try {
+          await register({
+            email,
+            code,
+          })
+          console.log('success')
+        } catch(e) {
+          console.error(e)
+        }
+      }
     }
   }
 }
