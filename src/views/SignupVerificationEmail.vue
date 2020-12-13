@@ -43,6 +43,7 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
 import { register, sendRegister } from '@/api/verification'
 import IntegerField from '@/components/IntegerField'
 import Snackbar from '@/components/Snackbar'
@@ -63,6 +64,10 @@ export default {
     }
   },
   methods: {
+    ...mapMutations('user', [
+      'setJwt',
+      'setUser',
+    ]),
     input(value) {
       if (value) {
         const parent = event.target.closest('.field--code')
@@ -122,11 +127,13 @@ export default {
         this.loading = true
         const { email } = this.$route.query
         try {
-          await register({
+          const { data } = await register({
             email,
             code,
           })
-          console.log('success')
+          this.setJwt(data.jwt)
+          this.setUser(data.user)
+          this.$router.push({ name: 'home' })
         } catch(e) {
           console.error(e)
         }

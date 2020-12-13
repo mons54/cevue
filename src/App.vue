@@ -11,6 +11,8 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
+import { getMe } from '@/api/user'
 import AppBar from '@/components/AppBar'
 import BottomNav from '@/components/BottomNav'
 
@@ -28,5 +30,15 @@ export default {
       return this.showNav && this.$vuetify.breakpoint.smAndDown
     },
   },
+  methods: {
+    ...mapMutations('user', [
+      'setUser',
+    ]),
+  },
+  async created() {
+    getMe().then(({ data }) => {
+      this.setUser(data)
+    })
+  }
 }
 </script>

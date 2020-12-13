@@ -26,7 +26,15 @@
 
     <v-spacer></v-spacer>
 
-    <v-toolbar-items>
+    <v-toolbar-items
+      v-if="user">
+      <v-btn
+        text>
+        {{ user.email }}
+      </v-btn>
+    </v-toolbar-items>
+    <v-toolbar-items
+      v-else>
       <v-btn
         v-if="!isMobile"
         :to="{ name: 'login' }"
@@ -72,6 +80,7 @@ export default {
   computed: {
     ...mapState({
       languages: state => state.locale.languages,
+      user: state => state.user.data,
     }),
     ...mapGetters('locale', [
       'language',
