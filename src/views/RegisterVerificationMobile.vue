@@ -1,33 +1,20 @@
 <template>
-  <div class="register-verification">
-    <v-container>
-      <v-row>
-        <v-col
-          cols="12"
-          md="6"
-          lg="4"
-          offset-md="3"
-          offset-lg="4">
-          <h1>{{ $t('pages.registerVerificationMobile.title') }}</h1>
-        </v-col>
-      </v-row>
-    </v-container>
-  </div>
+  <RegisterVerification
+    type="mobile"
+    :field="this.$route.query.mobile"
+    :title="$t('pages.registerVerificationMobile.title')"
+    :label="$t('pages.registerVerificationMobile.label')"
+    :sentMessage="$t('pages.registerVerificationMobile.sentSuccess')"
+    :errorMessage="$t('pages.registerVerificationMobile.error')"
+  />
 </template>
 
 <script>
-import { sendRegister } from '@/api/verification'
+import RegisterVerification from '@/components/RegisterVerification'
 
 export default {
-  created() {
-    const { mobile } = this.$route.query
-    if (!mobile) {
-      this.$router.push({ name: 'home' })
-      return
-    }
-    sendRegister({
-      mobile,
-    })
-  }
+  components: {
+    RegisterVerification,
+  },
 }
 </script>

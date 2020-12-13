@@ -8,8 +8,7 @@
     :hint="hint"
     :required="required"
     :disabled="disabled"
-    autocomplete="off"
-    type="number"
+    autocomplete="none"
     class="field--integer"
     :style="`text-align: ${align}`"
   />
@@ -76,14 +75,6 @@ export default {
 .field--integer {
   input {
     text-align: inherit;
-  }
-  input::-webkit-outer-spin-button,
-  input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
-  input[type=number] {
-    -moz-appearance: textfield;
   }
 }
 </style>

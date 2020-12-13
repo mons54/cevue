@@ -33,13 +33,15 @@
     },
     "registerVerificationEmail": {
       "title": "Account verification",
-      "labelCode": "Email verification code",
-      "sentSuccess": "Email code sent successfully"
+      "label": "Email verification code",
+      "sentSuccess": "Email code sent successfully",
+      "error": "Email code invalid. Please try again"
     },
     "registerVerificationMobile": {
       "title": "Account verification",
-      "labelCode": "Mobile verification code",
-      "sentSuccess": "Mobile code sent successfully"
+      "label": "Mobile verification code",
+      "sentSuccess": "Mobile code sent successfully",
+      "error": "Mobile code invalid. Please try again"
     }
   }
 }

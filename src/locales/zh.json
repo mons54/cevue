@@ -33,8 +33,9 @@
     },
     "registerVerificationEmail": {
       "title": "账号验证",
-      "labelCode": "新郵箱驗證碼",
-      "sentSuccess": "發送郵箱碼成功"
+      "label": "新郵箱驗證碼",
+      "sentSuccess": "發送郵箱碼成功",
+      "error": "驗證碼錯誤，請重試"
     }
   }
 }

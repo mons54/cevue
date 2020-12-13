@@ -33,8 +33,9 @@
     },
     "registerVerificationEmail": {
       "title": "Vérification du compte",
-      "labelCode": "Code de vérification par email",
-      "sentSuccess": "Code email envoyé avec succès"
+      "label": "Code de vérification par email",
+      "sentSuccess": "Code email envoyé avec succès",
+      "error": "Code email invalide. Veuillez réessayer"
     }
   }
 }

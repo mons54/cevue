@@ -33,8 +33,9 @@
     },
     "registerVerificationEmail": {
       "title": "Verificación de la cuenta",
-      "labelCode": "Código de verificación por correo electrónico",
-      "sentSuccess": "El código ha sido enviado al correo electrónico exitosamente"
+      "label": "Código de verificación por correo electrónico",
+      "sentSuccess": "El código ha sido enviado al correo electrónico exitosamente",
+      "error": "El código de correo electrónico no es válido. Inténtalo de nuevo"
     }
   }
 }

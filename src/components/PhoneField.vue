@@ -32,7 +32,6 @@
         ]"
         :label="$t('mobile')"
         required
-        class="input-phone"
       />
     </v-col>
   </v-row>

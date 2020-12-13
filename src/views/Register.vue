@@ -22,7 +22,7 @@
               <v-form
                 ref="form"
                 v-model="valid"
-                autocomplete="off"
+                autocomplete="none"
                 @submit="register">
                 <PhoneField
                   v-if="type === 'mobile'"
