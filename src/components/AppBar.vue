@@ -43,8 +43,8 @@
       </v-btn>
       <v-btn
         v-if="!isMobile"
-        :to="{ name: 'signup' }">
-        {{ $t('signup') }}
+        :to="{ name: 'register' }">
+        {{ $t('register') }}
       </v-btn>
       <v-menu
         offset-y

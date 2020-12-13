@@ -1,5 +1,5 @@
 <template>
-  <div class="signup-verification">
+  <div class="register-verification">
     <v-container>
       <v-row>
         <v-col
@@ -8,12 +8,12 @@
           lg="4"
           offset-md="3"
           offset-lg="4">
-          <h1>{{ $t('pages.signupVerification.title') }}</h1>
+          <h1>{{ $t('pages.registerVerificationEmail.title') }}</h1>
           <v-form
             ref="form"
             autocomplete="off"
             class="mt-12">
-            <v-label>{{ $t('pages.signupVerification.labelCode') }}</v-label>
+            <v-label>{{ $t('pages.registerVerificationEmail.labelCode') }}</v-label>
             <div class="d-flex">
               <IntegerField
                 v-for="n in 6"
@@ -112,7 +112,7 @@ export default {
       })
       this.snack = true
       this.snackColor = 'success'
-      this.snackMessage = this.$t('pages.signupVerification.sentSuccess')
+      this.snackMessage = this.$t('pages.registerVerificationEmail.sentSuccess')
     } catch(e) {
       const { data } = e.response
       this.snack = true

@@ -1,5 +1,5 @@
 <template>
-  <div class="signup-verification">
+  <div class="register-verification">
     <v-container>
       <v-row>
         <v-col
@@ -8,7 +8,7 @@
           lg="4"
           offset-md="3"
           offset-lg="4">
-          <h1>{{ $t('pages.signupVerification.title') }}</h1>
+          <h1>{{ $t('pages.registerVerificationMobile.title') }}</h1>
         </v-col>
       </v-row>
     </v-container>

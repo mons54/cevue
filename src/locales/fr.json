@@ -1,6 +1,6 @@
 {
   "login": "Connexion",
-  "signup": "S'inscrire",
+  "register": "S'inscrire",
   "goToHomepage": "Aller à la page d'accueil",
   "markets": "Marchés",
   "trade": "Trader",
@@ -26,12 +26,12 @@
     "password": "Au moins 8 caractères • Au moins 1 MAJUSCULE • Au moins 1 chiffre"
   },
   "pages": {
-    "signup": {
+    "register": {
       "title": "Créer un compte",
       "agreeTerms": "J'ai lu et j'accepte les conditions d'utilisation",
       "error": "Une erreur s'est produite lors de l'inscription"
     },
-    "signupVerification": {
+    "registerVerificationEmail": {
       "title": "Vérification du compte",
       "labelCode": "Code de vérification par email",
       "sentSuccess": "Code email envoyé avec succès"

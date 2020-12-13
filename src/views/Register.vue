@@ -1,5 +1,5 @@
 <template>
-  <div class="signup">
+  <div class="register">
     <v-container>
       <v-row>
         <v-col
@@ -8,7 +8,7 @@
           lg="4"
           offset-md="3"
           offset-lg="4">
-          <h1>{{ $t('pages.signup.title') }}</h1>
+          <h1>{{ $t('pages.register.title') }}</h1>
           <v-tabs
             v-model="tab">
             <v-tab
@@ -49,7 +49,7 @@
                   required/>
                 <v-checkbox
                   v-model="form.agree"
-                  :label="$t('pages.signup.agreeTerms')"
+                  :label="$t('pages.register.agreeTerms')"
                   :rules="[v => validateRequired(v)]"
                   required/>
                 <v-btn
@@ -58,7 +58,7 @@
                   type="submit"
                   color="success"
                   width="100%">
-                  {{ $t('signup') }}
+                  {{ $t('register') }}
                 </v-btn>
               </v-form>
               <div class="text-center mt-4">
@@ -73,7 +73,7 @@
       v-model="error"
       color="error">
       <v-icon>mdi-close-octagon</v-icon>
-      {{ $t('pages.signup.error') }}
+      {{ $t('pages.register.error') }}
     </Snackbar>
   </div>
 </template>
@@ -147,14 +147,14 @@ export default {
 
       if (this.type === 'mobile') {
         this.$router.push({
-          name: 'signupVerificationMobile',
+          name: 'registerVerificationMobile',
           query: {
             mobile: params.mobile,
           },
         })
       } else {
         this.$router.push({
-          name: 'signupVerificationEmail',
+          name: 'registerVerificationEmail',
           query: {
             email: params.email,
           },

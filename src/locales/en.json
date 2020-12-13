@@ -1,6 +1,6 @@
 {
   "login": "Log In",
-  "signup": "Register",
+  "register": "Register",
   "goToHomepage": "Go to Homepage",
   "markets": "Markets",
   "trade": "Trade",
@@ -26,15 +26,20 @@
     "password": "At least 8 characters • At least 1 UPPER CASE • At least 1 number"
   },
   "pages": {
-    "signup": {
+    "register": {
       "title": "Create an account",
       "agreeTerms": "I have read and agree to the Terms of Service",
       "error": "An error occurred during registration"
     },
-    "signupVerification": {
+    "registerVerificationEmail": {
       "title": "Account verification",
       "labelCode": "Email verification code",
       "sentSuccess": "Email code sent successfully"
+    },
+    "registerVerificationMobile": {
+      "title": "Account verification",
+      "labelCode": "Mobile verification code",
+      "sentSuccess": "Mobile code sent successfully"
     }
   }
 }

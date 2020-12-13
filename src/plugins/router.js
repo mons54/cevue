@@ -3,8 +3,9 @@ import VueRouter from 'vue-router'
 import { locale } from '@/api/locale'
 import Home from '@/views/Home'
 import Login from '@/views/Login'
-import Signup from '@/views/Signup'
-import SignupVerificationEmail from '@/views/SignupVerificationEmail'
+import Register from '@/views/Register'
+import RegisterVerificationEmail from '@/views/RegisterVerificationEmail'
+import RegisterVerificationMobile from '@/views/RegisterVerificationMobile'
 import NotFound from '@/views/NotFound'
 
 Vue.use(VueRouter)
@@ -21,14 +22,19 @@ const routes = [
     component: Login,
   },
   {
-    path: '/signup',
-    name: 'signup',
-    component: Signup,
+    path: '/register',
+    name: 'register',
+    component: Register,
   },
   {
-    path: '/signup/verification/email',
-    name: 'signupVerificationEmail',
-    component: SignupVerificationEmail,
+    path: '/register/verification/email',
+    name: 'registerVerificationEmail',
+    component: RegisterVerificationEmail,
+  },
+  {
+    path: '/register/verification/mobile',
+    name: 'registerVerificationMobile',
+    component: RegisterVerificationMobile,
   },
   {
     path: '*',

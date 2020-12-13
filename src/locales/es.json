@@ -1,6 +1,6 @@
 {
   "login": "Iniciar Sesión",
-  "signup": "Registrarse",
+  "register": "Registrarse",
   "goToHomepage": "Ir a la página de inicio",
   "markets": "Mercados",
   "trade": "Trading",
@@ -26,12 +26,12 @@
     "password": "Al menos 8 caracteres • Al menos 1 MAYÚSCULA • Al menos 1 número"
   },
   "pages": {
-    "signup": {
+    "register": {
       "title": "Crear una cuenta",
       "agreeTerms": "He leído y acepto los Términos del Servicio",
       "error": "Ocurrió un error durante el registro"
     },
-    "signupVerification": {
+    "registerVerificationEmail": {
       "title": "Verificación de la cuenta",
       "labelCode": "Código de verificación por correo electrónico",
       "sentSuccess": "El código ha sido enviado al correo electrónico exitosamente"
