@@ -1,7 +1,7 @@
 import axios from '@/services/axios'
 
-export function createUser(params) {
-  return axios.post('/user', params)
+export function register(params) {
+  return axios.post('/user/register', params)
 }
 
 export function getMe() {

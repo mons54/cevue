@@ -79,7 +79,7 @@
 </template>
 
 <script>
-import { createUser } from '@/api/user'
+import { register } from '@/api/user'
 import PhoneField from '@/components/PhoneField'
 import Snackbar from '@/components/Snackbar'
 import {
@@ -138,7 +138,7 @@ export default {
       }
 
       try {
-        await createUser(params)
+        await register(params)
       } catch(e) {
         this.showError = true
         this.loading = false
