@@ -31,11 +31,21 @@
       "agreeTerms": "He leído y acepto los Términos del Servicio",
       "error": "Ocurrió un error durante el registro"
     },
+    "login": {
+      "title": "Iniciar sesión",
+      "error": "Usuario o contraseña incorrectos"
+    },
     "registerVerificationEmail": {
       "title": "Verificación de la cuenta",
       "label": "Código de verificación por correo electrónico",
-      "sentSuccess": "El código ha sido enviado al correo electrónico exitosamente",
-      "error": "El código de correo electrónico no es válido. Inténtalo de nuevo"
+      "sentSuccess": "El código de verificación ha sido enviado al correo electrónico",
+      "error": "El código de verificación no es válido. Inténtalo de nuevo"
+    },
+    "registerVerificationMobile": {
+      "title": "Verificación de la cuenta",
+      "label": "Código de verificación del teléfono",
+      "sentSuccess": "El código de verificación ha sido enviado al número de móvil",
+      "error": "El código de verificación no es válido. Inténtalo de nuevo"
     }
   }
 }

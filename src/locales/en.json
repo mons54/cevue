@@ -31,6 +31,10 @@
       "agreeTerms": "I have read and agree to the Terms of Service",
       "error": "An error occurred during registration"
     },
+    "login": {
+      "title": "Log In",
+      "error": "Incorrect username or password"
+    },
     "registerVerificationEmail": {
       "title": "Account verification",
       "label": "Email verification code",

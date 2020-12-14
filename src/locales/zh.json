@@ -31,10 +31,20 @@
       "agreeTerms": "至少8個字符，大寫字母和數字",
       "error": "注册期间发生错误"
     },
+    "login": {
+      "title": "請確認您在訪問",
+      "error": "使用者名稱或密碼錯誤"
+    },
     "registerVerificationEmail": {
       "title": "账号验证",
       "label": "新郵箱驗證碼",
       "sentSuccess": "發送郵箱碼成功",
+      "error": "驗證碼錯誤，請重試"
+    },
+    "registerVerificationMobile": {
+      "title": "账号验证",
+      "label": "手机驗證碼",
+      "sentSuccess": "短信驗證碼已發送。請檢查",
       "error": "驗證碼錯誤，請重試"
     }
   }

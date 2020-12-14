@@ -142,7 +142,7 @@ export default {
           this.snack = true
           this.snackColor = 'error'
           const { status } = e.response
-          if (status === 406) {
+          if (status === 401) {
             this.snackMessage = this.errorMessage
           } else {
             const { data } = e.response
