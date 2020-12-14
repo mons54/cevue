@@ -39,13 +39,13 @@
       "title": "Vérification du compte",
       "label": "Code de vérification par email",
       "sentSuccess": "Code de vérification email envoyé avec succès",
-      "error": "Code de vérification. Veuillez réessayer"
+      "error": "Code de vérification invalide. Veuillez réessayer"
     },
     "registerVerificationMobile": {
       "title": "Vérification du compte",
       "label": "Code de vérification par mobile",
       "sentSuccess": "Code de vérification mobile envoyé avec succès",
-      "error": "Code de vérification. Veuillez réessayer"
+      "error": "Code de vérification invalide. Veuillez réessayer"
     }
   }
 }
