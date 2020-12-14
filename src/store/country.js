@@ -9,10 +9,12 @@ const getters = {
     if (!state.countries)
       return null
 
+    const language = navigator.language.slice(0, 2)
+
     let country
 
-    if (typeof navigator.language === 'string')
-      country = state.countries.find(country => country.iso === navigator.language.slice(-2))
+    if (typeof language === 'string')
+      country = state.countries.find(country => country.iso === language.toUpperCase())
 
     if (!country)
       country = state.countries.find(country => country.iso === 'EN')

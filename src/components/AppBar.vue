@@ -30,7 +30,7 @@
       v-if="user">
       <v-btn
         text>
-        {{ user.email }}
+        {{ user.email || user.mobile }}
       </v-btn>
     </v-toolbar-items>
     <v-toolbar-items

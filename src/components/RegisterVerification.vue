@@ -10,25 +10,13 @@
           offset-lg="4">
           <h1>{{ title }}</h1>
           <v-form
-            ref="form"
-            autocomplete="none"
+            autocomplete="off"
             class="mt-12">
             <v-label>{{ label }}</v-label>
-            <div class="d-flex">
-              <IntegerField
-                v-for="n in codeLength"
-                @input="input"
-                @keydown="keydown"
-                @paste="paste"
-                :key="n"
-                v-model="code[n - 1]"
-                required
-                class="mr-2 field--code"
-                align="center"
-                :maxlength="1"
-                :disabled="loading"
-              />
-            </div>
+            <CodeField
+              v-model="code"
+              :disabled="loading"
+            />
           </v-form>
         </v-col>
       </v-row>
@@ -45,7 +33,7 @@
 <script>
 import { mapMutations } from 'vuex'
 import { register, sendRegister } from '@/api/verification'
-import IntegerField from '@/components/IntegerField'
+import CodeField from '@/components/CodeField'
 import Snackbar from '@/components/Snackbar'
 
 export default {
@@ -58,18 +46,16 @@ export default {
     errorMessage: String,
   },
   components: {
-    IntegerField,
+    CodeField,
     Snackbar,
   },
   data() {
     return {
-      code: [],
-      back: false,
+      code: '',
       loading: false,
       snack: false,
       snackColor: null,
       snackMessage: null,
-      codeLength: 6,
     }
   },
   methods: {
@@ -134,9 +120,9 @@ export default {
     }
   },
   watch: {
-    async code(value) {
-      const code = value.join('')
-      if (code.length === this.codeLength) {
+    async code(code) {
+
+      if (code) {
 
         const params = { code }
 

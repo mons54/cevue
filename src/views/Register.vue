@@ -22,7 +22,7 @@
               <v-form
                 ref="form"
                 v-model="valid"
-                autocomplete="none"
+                autocomplete="off"
                 @submit="register">
                 <PhoneField
                   v-if="type === 'mobile'"
@@ -36,7 +36,9 @@
                     v => validateEmail(v) || $t('formRules.email.invalid'),
                   ]"
                   :label="$t('email')"
-                  required/>
+                  autocomplete="off"
+                  required
+                  aria-label="Email"/>
                 <v-text-field
                   v-model="form.password"
                   type="password"
@@ -46,7 +48,9 @@
                     v => validateRequired(v) || $t('formRules.email.required'),
                     v => validatePassword(v) || $t('formRules.email.invalid'),
                   ]"
-                  required/>
+                  autocomplete="off"
+                  required
+                  aria-label="Password"/>
                 <v-checkbox
                   v-model="form.agree"
                   :label="$t('pages.register.agreeTerms')"

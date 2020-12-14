@@ -8,9 +8,12 @@
     :hint="hint"
     :required="required"
     :disabled="disabled"
-    autocomplete="none"
     class="field--integer"
     :style="`text-align: ${align}`"
+    autocomplete="off"
+    spellcheck="false"
+    pattern="[0-9]*"
+    aria-label="Verification code"
   />
 </template>
 
