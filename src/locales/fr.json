@@ -29,7 +29,8 @@
     "register": {
       "title": "Créer un compte",
       "agreeTerms": "J'ai lu et j'accepte les conditions d'utilisation",
-      "error": "Une erreur s'est produite lors de l'inscription"
+      "error": "Une erreur s'est produite lors de l'inscription",
+      "errorUserExists": "Cet utilisateur existe déjà"
     },
     "login": {
       "title": "Se connecter",

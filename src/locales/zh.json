@@ -29,7 +29,8 @@
     "register": {
       "title": "创建一个帐户",
       "agreeTerms": "至少8個字符，大寫字母和數字",
-      "error": "注册期间发生错误"
+      "error": "注册期间发生错误",
+      "errorUserExists": "该用户已经存在"
     },
     "login": {
       "title": "請確認您在訪問",

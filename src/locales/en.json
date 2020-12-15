@@ -29,7 +29,8 @@
     "register": {
       "title": "Create an account",
       "agreeTerms": "I have read and agree to the Terms of Service",
-      "error": "An error occurred during registration"
+      "error": "An error occurred during registration",
+      "errorUserExists": "This user already exists"
     },
     "login": {
       "title": "Log In",

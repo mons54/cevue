@@ -29,7 +29,8 @@
     "register": {
       "title": "Crear una cuenta",
       "agreeTerms": "He leído y acepto los Términos del Servicio",
-      "error": "Ocurrió un error durante el registro"
+      "error": "Ocurrió un error durante el registro",
+      "errorUserExists": "Este usuario ya existe"
     },
     "login": {
       "title": "Iniciar sesión",
