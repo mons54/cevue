@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import { locale } from '@/api/locale'
 import Home from '@/views/Home'
 import Login from '@/views/Login'
+import LoginVerificationMobile from '@/views/LoginVerificationMobile'
 import Register from '@/views/Register'
 import RegisterVerificationEmail from '@/views/RegisterVerificationEmail'
 import RegisterVerificationMobile from '@/views/RegisterVerificationMobile'
@@ -20,6 +21,11 @@ const routes = [
     path: '/login',
     name: 'login',
     component: Login,
+  },
+  {
+    path: '/login/verification/mobile',
+    name: 'loginVerificationMobile',
+    component: LoginVerificationMobile,
   },
   {
     path: '/register',

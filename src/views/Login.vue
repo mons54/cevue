@@ -70,6 +70,7 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
 import { login } from '@/api/user'
 import PhoneField from '@/components/PhoneField'
 import Snackbar from '@/components/Snackbar'
@@ -110,6 +111,9 @@ export default {
     },
   },
   methods: {
+    ...mapMutations('user', [
+      'setJwt',
+    ]),
     validateEmail,
     validateRequired,
     validatePassword,
@@ -131,7 +135,8 @@ export default {
       }
 
       try {
-        await login(params)
+        const { data } = await login(params)
+        this.setJwt(data.jwt)
       } catch(e) {
         this.showError = true
         this.loading = false
@@ -140,7 +145,7 @@ export default {
 
       if (this.type === 'mobile') {
         this.$router.push({
-          name: 'registerVerificationMobile',
+          name: 'loginVerificationMobile',
           query: {
             mobile: params.mobile,
           },

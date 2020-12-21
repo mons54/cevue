@@ -17,5 +17,7 @@
 </template>
 
 <style lang="scss" scoped>
-@import '@/assets/scss/user-access.scss';
+h1 {
+  margin: 1rem 0;
+}
 </style>

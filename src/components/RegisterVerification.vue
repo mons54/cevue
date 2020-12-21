@@ -1,33 +1,24 @@
 <template>
-  <div class="register-verification">
-    <v-container>
-      <v-row>
-        <v-col
-          cols="12"
-          md="6"
-          lg="4"
-          offset-md="3"
-          offset-lg="4">
-          <h1>{{ title }}</h1>
-          <v-form
-            autocomplete="off"
-            class="mt-12">
-            <v-label>{{ label }}</v-label>
-            <CodeField
-              v-model="code"
-              :disabled="loading"
-            />
-          </v-form>
-        </v-col>
-      </v-row>
-    </v-container>
+  <UserAccess>
+    <template v-slot:title>{{ title }}</template>
+    <template>
+      <v-form
+        autocomplete="off"
+        class="mt-12">
+        <v-label>{{ label }}</v-label>
+        <CodeField
+          v-model="code"
+          :disabled="loading"
+        />
+      </v-form>
+    </template>
     <Snackbar
       v-model="snack"
       :color="snackColor">
       <v-icon>mdi-close-octagon</v-icon>
       {{ snackMessage }}
     </Snackbar>
-  </div>
+  </UserAccess>
 </template>
 
 <script>
@@ -35,6 +26,7 @@ import { mapMutations } from 'vuex'
 import { register, sendRegister } from '@/api/verification'
 import CodeField from '@/components/CodeField'
 import Snackbar from '@/components/Snackbar'
+import UserAccess from '@/components/UserAccess'
 
 export default {
   props: {
@@ -48,6 +40,7 @@ export default {
   components: {
     CodeField,
     Snackbar,
+    UserAccess,
   },
   data() {
     return {
@@ -92,33 +85,6 @@ export default {
         this.code = paste.split('')
     }
   },
-  async mounted() {
-
-    if (!this.field) {
-      this.$router.push({ name: 'home' })
-      return
-    }
-
-    const params = {}
-
-    if (this.type === 'email') {
-      params.email = this.field
-    } else {
-      params.mobile = this.field
-    }
-
-    try {
-      await sendRegister(params)
-      this.snack = true
-      this.snackColor = 'success'
-      this.snackMessage = this.sentMessage
-    } catch(e) {
-      const { data } = e.response
-      this.snack = true
-      this.snackColor = 'error'
-      this.snackMessage = data.error
-    }
-  },
   watch: {
     async code(code) {
 
@@ -152,6 +118,33 @@ export default {
         }
       }
     }
-  }
+  },
+  async mounted() {
+
+    if (!this.field) {
+      this.$router.push({ name: 'home' })
+      return
+    }
+
+    const params = {}
+
+    if (this.type === 'email') {
+      params.email = this.field
+    } else {
+      params.mobile = this.field
+    }
+
+    try {
+      await sendRegister(params)
+      this.snack = true
+      this.snackColor = 'success'
+      this.snackMessage = this.sentMessage
+    } catch(e) {
+      const { data } = e.response
+      this.snack = true
+      this.snackColor = 'error'
+      this.snackMessage = data.error
+    }
+  },
 }
 </script>
