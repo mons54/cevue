@@ -13,13 +13,10 @@
     <v-toolbar-items
       v-if="!isMobile"
       class="ml-8">
-      <v-btn
-        text>
+      <v-btn text>
         {{ $t('markets') }}
       </v-btn>
-      <v-btn
-        v-if="!isMobile"
-        text>
+      <v-btn text>
         {{ $t('trade') }}
       </v-btn>
     </v-toolbar-items>
