@@ -6,7 +6,7 @@
       <router-view/>
     </v-main>
     <BottomNav
-      v-if="isMobileNav"/>
+      v-if="isMobile"/>
   </v-app>
 </template>
 
@@ -26,11 +26,11 @@ export default {
     showNav() {
       return this.$route.name !== 'NotFound'
     },
-    isMobileNav() {
+    isMobile() {
       return this.showNav && this.$vuetify.breakpoint.smAndDown
     },
     styleApp() {
-      return this.isMobileNav ? { paddingBottom: '56px' } : null
+      return this.isMobile ? { paddingBottom: '56px' } : null
     },
   },
   methods: {
