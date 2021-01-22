@@ -3,7 +3,7 @@
     <AppBar
       v-if="showNav"/>
     <v-main>
-      <router-view></router-view>
+      <router-view/>
     </v-main>
     <BottomNav
       v-if="isMobileNav"/>
