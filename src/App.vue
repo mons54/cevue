@@ -1,5 +1,5 @@
 <template>
-  <v-app :style="isMobileNav ? 'padding-bottom: 56px' : null">
+  <v-app :style="styleApp">
     <AppBar
       v-if="showNav"/>
     <v-main>
@@ -28,6 +28,9 @@ export default {
     },
     isMobileNav() {
       return this.showNav && this.$vuetify.breakpoint.smAndDown
+    },
+    styleApp() {
+      return this.isMobileNav ? { paddingBottom: '56px' } : null
     },
   },
   methods: {
